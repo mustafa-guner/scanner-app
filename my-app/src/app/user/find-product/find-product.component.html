@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="my-3">
+        <h1 class="title text-center">Scan Your Product</h1>
+    </div>
+    <hr class="w-75 mx-auto">
+    <div class="row">
+        <div class="col-4">
+            <zxing-scanner *ngIf="scannerEnabled" [formats]="allowedFormats" #scanner
+                (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container mt-4 d-flex flex-column justify-content-center">
+    <div class="row">
+        <div class="col-12 mx-auto">
+            <h1 class="display-4 text-center">Login</h1>
+
+            <hr class="w-50 mx-auto">
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="col-lg-4 col-md-4 col-sm-12 col-xs-12 mx-auto">
+                <div class="form-group my-4">
+                    <label for="usercode">User Code</label>
+                    <input formControlName="usercode" type="text" class="form-control" id="usercode"
+                        aria-describedby="usercode" placeholder="Enter code">
+
+                </div>
+                <div class="form-group my-4">
+                    <label for="pin">Pin Number</label>
+                    <input formControlName="pin" type="password" class="form-control" id="pin"
+                        placeholder="Enter number">
+                </div>
+
+                <button [disabled]="loading" type="submit" class="btn p text-center btn-primary w-100">
+
+                    <div *ngIf="loading">
+                        <div class="spinner-border spinner-border-sm " role="status"></div>
+                    </div>
+
+                    <div *ngIf="!loading">Submit</div>
+                </button>
+
+
+                <!--Error message on wrong credentials-->
+                <div *ngIf="error" class=" my-3 alert alert-danger" role="alert">
+                    Wrong credentials were provided. Please try again
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
